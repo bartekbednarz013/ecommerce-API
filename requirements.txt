@@ -1,0 +1,6 @@
+celery==5.3.6
+Django==5.0.1
+django_imagekit==5.0.0
+djangorestframework==3.14.0
+drf_spectacular==0.27.1
+redis==5.0.1
