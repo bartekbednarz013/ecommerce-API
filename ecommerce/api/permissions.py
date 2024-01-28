@@ -35,6 +35,6 @@ class SellerPermission(permissions.BasePermission):
     """
 
     def has_permission(self, request, view):
-        if request.user.groups.filter(name="Seller").exists():
+        if request.user.groups.filter(name="Sellers").exists():
             return True
         return False
