@@ -49,10 +49,10 @@ class MakeOrderAPI(CreateAPIView):
     def save_order(self, request, *args, **kwargs):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        order = serializer.save(client=request.user)
-        order.payment_date = self._calculate_payment_date()
         products_list = request.data["products_list"]
         self.validate_products_list(products_list)
+        order = serializer.save(client=request.user)
+        order.payment_date = self._calculate_payment_date()
         total = 0
         for item in products_list:
             product = Product.objects.get(id=item["id"])
